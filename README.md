@@ -1,7 +1,7 @@
-Discord tray
+Thunderbird tray
 ============
 
-Adds a tray icon to the Discord Linux client application. This is a workaround for WMs such as i3 which lack the functionality to hide or minimize windows on its own.
+Adds a tray icon to the Thunderbird Linux client application. This is a workaround for WMs such as i3 which lack the functionality to hide or minimize windows on its own.
 
 Features:
 * Everything you need

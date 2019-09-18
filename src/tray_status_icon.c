@@ -26,7 +26,7 @@ static void on_popup(GtkStatusIcon *icon, guint button,
 		button, activate_time);
 }
 
-/* Left click callback: toggle the Discord window visibility. */
+/* Left click callback: toggle the Thunderbird window visibility. */
 static void on_activate(GtkStatusIcon *icon, gpointer user_data)
 {
 	GdkWindow *client_window = GDK_WINDOW(user_data);
@@ -55,13 +55,13 @@ static GtkMenu *new_popup_menu(GdkWindow *client_window)
 	return GTK_MENU(popup_menu);
 }
 
-/* Creates a new tray icon: assumes the Discord client is properly installed
+/* Creates a new tray icon: assumes the Thunderbird client is properly installed
  * and uses its icon. Installs the popup_menu as the right-click menu and
- * lets left click to show/hide the Discord cient window. */
+ * lets left click to show/hide the Thunderbird cient window. */
 void new_tray_icon(GdkWindow *client_window)
 {
 	GtkStatusIcon *tray_icon =
-		gtk_status_icon_new_from_icon_name("discord");
+		gtk_status_icon_new_from_icon_name("thunderbird");
 	gtk_status_icon_set_has_tooltip(tray_icon, FALSE);
 	gtk_status_icon_set_visible(tray_icon, TRUE);
 	g_signal_connect((gpointer) tray_icon, "popup-menu",

@@ -1,10 +1,10 @@
 SUBDIRS = src
 
-EXTRA_DIST = discord-tray.spec.in \
-			 discord-tray.desktop.in
+EXTRA_DIST = thunderbird-tray.spec.in \
+			 thunderbird-tray.desktop.in
 
 desktopdir = $(datadir)/applications
-desktop_in_files = discord-tray.desktop.in
+desktop_in_files = thunderbird-tray.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 
 # Copy all the spec files. Of cource, only one is actually used.
@@ -16,7 +16,7 @@ dist-hook:
 	done
 
 rpm:
-	rpmbuild -bb --build-in-place discord-tray.spec
+	rpmbuild -bb --build-in-place thunderbird-tray.spec
 
 clean-local:
 	-rm -f *.list

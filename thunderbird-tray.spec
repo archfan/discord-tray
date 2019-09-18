@@ -1,17 +1,17 @@
-Name:		discord-tray
-Version:	@VERSION@
+Name:		thunderbird-tray
+Version:	0.1
 Release:	1%{?dist}
-Summary:	Tray icon for the Discord client application
+Summary:	Tray icon for the Thunderbird client application
 
 License:	GPLv3+
 Source0:	%{name}-%{version}.tar.bz2
 
 BuildRequires:	gtk3-devel
-Requires:		discord
+Requires:		thunderbird
 
 
 %description
-Adds a tray icon for the Discord client application.
+Adds a tray icon for the Thunderbird client application.
 
 
 %prep
@@ -33,11 +33,11 @@ desktop-file-install --delete-original \
 %files
 %doc README.md
 %license LICENSE
-%{_bindir}/discord-tray
+%{_bindir}/thunderbird-tray
 %{_datadir}/applications/*%{name}.desktop
 
 
 %changelog
-* Fri Sep 07 2018 Tomas Smetana <tomas@smetana.name> - @VERSION@
+* Fri Sep 07 2018 Tomas Smetana <tomas@smetana.name> - 0.1
 - Built from the spec file template
 

@@ -8,10 +8,10 @@
 #include "tray_status_icon.h"
 #include "winctrl.h"
 
-#define DEFAULT_CLIENT_APP_PATH "discord"
+#define DEFAULT_CLIENT_APP_PATH "/usr/bin/thunderbird"
 #define CLIENT_FIND_ATTEMPTS 5
 
-/* Gets called when the Discord client exits. */
+/* Gets called when the Thunderbird client exits. */
 void on_client_app_exit(GPid pid, gint status, gpointer user_data)
 {
 	waitpid((pid_t) pid, NULL, 0);
@@ -19,7 +19,7 @@ void on_client_app_exit(GPid pid, gint status, gpointer user_data)
 	gtk_main_quit();
 }
 
-/* Try to get the GdkWindow for the Discord client application, try to
+/* Try to get the GdkWindow for the Thunderbird client application, try to
  * spawn a new process using the client_app_argv if the window is not found
  * at the first attempt */
 GdkWindow *get_client_window(gchar **client_app_argv)
@@ -31,7 +31,7 @@ GdkWindow *get_client_window(gchar **client_app_argv)
 
 	/* Try to get the window */
 	if (!(client_window = winctrl_get_client())) {
-		/* No window found: launch Discord client app. */
+		/* No window found: launch Thunderbird client app. */
 		if (!g_spawn_async(NULL, /* work dir (doesn't matter: inherit') */
 					client_app_argv, /* argv */
 					NULL, /* envp -- inherit */
@@ -48,11 +48,11 @@ GdkWindow *get_client_window(gchar **client_app_argv)
 		}
 		/* App launched, try to find its window. */
 		for (i = 0; i < CLIENT_FIND_ATTEMPTS; i++) {
-			/* Discord takes time to start up, so wait a while. */
+			/* Thunderbird takes time to start up, so wait a while. */
 			g_usleep(5E5); /* 0.5 sec */
 			if (!(client_window = winctrl_get_client())) {
 				/* Still nothing, try again. */
-				g_warning("Could not find the Discord client window: "
+				g_warning("Could not find the Thunderbird client window: "
 						"attempting to launch the application, attempt %d/%d",
 						i + 1, CLIENT_FIND_ATTEMPTS);
 			} else {
@@ -72,7 +72,7 @@ int main(int argc, char **argv)
 	gchar *client_app_path_opt = NULL;
 	GOptionEntry entries[] = {
 		{"client-path", 'c', 0, G_OPTION_ARG_STRING, &client_app_path_opt,
-			"Path to the Discord client application, default \"discord\"",
+			"Path to the Thunderbird client application, default \"thunderbird\"",
 			"<path>"},
 		{NULL}
 	};
@@ -82,13 +82,13 @@ int main(int argc, char **argv)
 
 	/* Parse command line options */
 	context = g_option_context_new("- system tray icon for "
-			"the Discord client application");
+			"the Thunderbird client application");
 	g_option_context_add_group(context, gtk_get_option_group(TRUE));
 	g_option_context_add_main_entries(context, entries, NULL);
 	g_option_context_parse(context, &argc, &argv, &err);
 	g_option_context_free(context);
 
-	/* Prepare argv to start the Discord client application */
+	/* Prepare argv to start the Thunderbird client application */
 	if (client_app_path_opt) {
 		client_app_argv[0] = g_strdup(client_app_path_opt);
 	} else {
@@ -96,10 +96,10 @@ int main(int argc, char **argv)
 	}
 
 	gtk_init(&argc, &argv);
-	/* Try to find the client application window; spawn a new Discord
+	/* Try to find the client application window; spawn a new Thunderbird
 	 * client eventually. Bail out on failure */
 	if (!(client_window = get_client_window(client_app_argv))) {
-		g_critical("Could not find the Discord client window: giving up");
+		g_critical("Could not find the Thunderbird client window: giving up");
 		g_free(client_app_argv[0]);
 		return 1;
 	}

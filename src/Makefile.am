@@ -8,18 +8,18 @@ AM_CFLAGS =\
 	 -Wno-deprecated-declarations \
 	 -g
 
-bin_PROGRAMS = discord-tray
+bin_PROGRAMS = thunderbird-tray
 
-discord_tray_SOURCES = \
+thunderbird_tray_SOURCES = \
 	main.c \
 	tray_status_icon.h \
 	tray_status_icon.c \
 	winctrl.c \
 	winctrl.h
 
-discord_tray_LDFLAGS = \
+thunderbird_tray_LDFLAGS = \
 	$(GTK_LDFLAGS) $(X11_LDFLAGS) $(APPINDICATOR_CFLAGS)
 
-discord_tray_LDADD =  \
+thunderbird_tray_LDADD =  \
 	$(GTK_LIBS) $(X11_LIBS) $(APPINDICATOR_CFLAGS)
 

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Thunderbird Tray Icon
+Comment=Start Thunderbird client with tray icon
+Exec=thunderbird-tray
+Icon=thunderbird
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Categories=Network;InstantMessaging;
+StartupNotify=true

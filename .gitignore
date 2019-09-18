@@ -15,8 +15,8 @@ missing
 *.rej
 *.swp
 src/.deps/
-src/spotify-tray
+src/discord-tray
 stamp-h1
 *.list
-spotify-tray.spec
-spotify-tray.desktop
+discord-tray.spec
+discord-tray.desktop

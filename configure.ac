@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT(spotify-tray,0.1,,)
+AC_INIT(discord-tray,0.1,,)
 AM_INIT_AUTOMAKE([foreign])
 AC_PREREQ(2.69)
 AC_CONFIG_HEADERS(config.h)
@@ -16,6 +16,6 @@ PKG_CHECK_MODULES(X11, x11,,)
 AC_OUTPUT([
 Makefile
 src/Makefile
-spotify-tray.spec
-spotify-tray.desktop
+discord-tray.spec
+discord-tray.desktop
 ])

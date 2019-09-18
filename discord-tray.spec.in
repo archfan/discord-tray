@@ -1,17 +1,17 @@
-Name:		spotify-tray
+Name:		discord-tray
 Version:	@VERSION@
 Release:	1%{?dist}
-Summary:	Tray icon for the Spotify client application
+Summary:	Tray icon for the Discord client application
 
 License:	GPLv3+
 Source0:	%{name}-%{version}.tar.bz2
 
 BuildRequires:	gtk3-devel
-Requires:		spotify-client
+Requires:		discord
 
 
 %description
-Adds a tray icon for the Spotify client application.
+Adds a tray icon for the Discord client application.
 
 
 %prep
@@ -33,7 +33,7 @@ desktop-file-install --delete-original \
 %files
 %doc README.md
 %license LICENSE
-%{_bindir}/spotify-tray
+%{_bindir}/discord-tray
 %{_datadir}/applications/*%{name}.desktop
 
 

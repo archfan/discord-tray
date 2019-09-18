@@ -8,20 +8,18 @@ AM_CFLAGS =\
 	 -Wno-deprecated-declarations \
 	 -g
 
-bin_PROGRAMS = spotify-tray
+bin_PROGRAMS = discord-tray
 
-spotify_tray_SOURCES = \
+discord_tray_SOURCES = \
 	main.c \
 	tray_status_icon.h \
 	tray_status_icon.c \
-	proxy.h \
-	proxy.c \
 	winctrl.c \
 	winctrl.h
 
-spotify_tray_LDFLAGS = \
+discord_tray_LDFLAGS = \
 	$(GTK_LDFLAGS) $(X11_LDFLAGS) $(APPINDICATOR_CFLAGS)
 
-spotify_tray_LDADD =  \
+discord_tray_LDADD =  \
 	$(GTK_LIBS) $(X11_LIBS) $(APPINDICATOR_CFLAGS)
 

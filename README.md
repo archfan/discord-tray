@@ -1,7 +1,7 @@
-Spotify tray
+Discord tray
 ============
 
-Adds a tray icon to the Spotify Linux client application.
+Adds a tray icon to the Discord Linux client application.
 
 Features:
 * Basic playback control through right-click menu
@@ -15,11 +15,3 @@ Installation
 * `./configure`
 * `make`
 * Optionally `make install` will put the resulting binary to `/usr/local/bin`
-
-Disclaimer
-----------
-
-This software is in no way official and has nothing to do with the Spotify Technology S.A. company.
-Its only purpose is to add functionality missing in the official client.
-
-Spotify is a registered trademark of Spotify AB.

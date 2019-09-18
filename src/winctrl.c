@@ -8,7 +8,7 @@
 #include <gdk/gdkx.h>
 #include "winctrl.h"
 
-#define SPOTIFY_WM_CLASS "spotify"
+#define DISCORD_WM_CLASS "discord"
 
 /* Helper function to retrieve a X11 window property: display is the display
  * of the window win, prop is the requested property of type req_type. The
@@ -41,8 +41,8 @@ static unsigned char *get_x_property(Display *display, Window win, Atom prop,
 }
 
 /* For the given X11 window on given display, find its WM_CLASS property and
- * return true if it corresponds to the Spotify client application. */
-static gboolean is_spotify_window(Display *display, Window win)
+ * return true if it corresponds to the Discord client application. */
+static gboolean is_discord_window(Display *display, Window win)
 {
 	unsigned char *class;
 	unsigned long length;
@@ -58,14 +58,14 @@ static gboolean is_spotify_window(Display *display, Window win)
 			&length);
 	if (length > 0) {
 		class[length - 1] = '\0';
-		ret = strlen((char *)class) == strlen(SPOTIFY_WM_CLASS) &&
-			(strncmp((char *)class, SPOTIFY_WM_CLASS, strlen(SPOTIFY_WM_CLASS)) == 0);
+		ret = strlen((char *)class) == strlen(DISCORD_WM_CLASS) &&
+			(strncmp((char *)class, DISCORD_WM_CLASS, strlen(DISCORD_WM_CLASS)) == 0);
 		XFree(class);
 	}
 	return ret;
 }
 
-/* Use X11 to find the Spotify client window and get a GDK window for it.
+/* Use X11 to find the Discord client window and get a GDK window for it.
  * Returns the GdkWindow if found, NULL otherwise. */
 GdkWindow *winctrl_get_client(void)
 {
@@ -87,9 +87,9 @@ GdkWindow *winctrl_get_client(void)
 			XA_WINDOW,
 			&length);
 	/* Try to find the one with the WM_CLASS property corresponding
-	 * to the Spotify client. */
+	 * to the Discord client. */
 	for (i = 0; i < length; i++)
-		if (is_spotify_window(display, win_list[i])) {
+		if (is_discord_window(display, win_list[i])) {
 			ret_win = gdk_x11_window_foreign_new_for_display(
 					gdk_x11_lookup_xdisplay(display), win_list[i]);
 			break;

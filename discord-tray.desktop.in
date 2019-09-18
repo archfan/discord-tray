@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Discord Tray Icon
+Comment=Start Discord client with tray icon
+Exec=discord-tray
+Icon=discord
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Categories=Network;InstantMessaging;
+StartupNotify=true

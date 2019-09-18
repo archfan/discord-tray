@@ -12,10 +12,11 @@
 #define CLIENT_FIND_ATTEMPTS 5
 
 /* Gets called when the Discord client exits. */
-void on_client_app_exit()
+void on_client_app_exit(GPid pid, gint status, gpointer user_data)
 {
-	system("pkill -9 Discord");
-	gtk_main_quit(); 
+	waitpid((pid_t) pid, NULL, 0);
+	g_spawn_close_pid(pid);
+	gtk_main_quit();
 }
 
 /* Try to get the GdkWindow for the Discord client application, try to

@@ -5,15 +5,6 @@
 #include <gtk/gtk.h>
 #include "tray_status_icon.h"
 
-void on_random_toggled(GtkWidget *menuitem, gpointer user_data)
-{
-	g_debug("random toggled");
-}
-
-void on_shuffle_toggled(GtkWidget *menuitem, gpointer user_data)
-{
-	g_debug("shuffle toggled");
-}
 
 void on_quit_activate(GtkWidget *menuitem, gpointer user_data)
 {
@@ -71,7 +62,7 @@ void new_tray_icon(GdkWindow *client_window)
 {
 	GtkStatusIcon *tray_icon =
 		gtk_status_icon_new_from_icon_name("discord");
-	gtk_status_icon_set_has_tooltip(tray_icon, TRUE);
+	gtk_status_icon_set_has_tooltip(tray_icon, FALSE);
 	gtk_status_icon_set_visible(tray_icon, TRUE);
 	g_signal_connect((gpointer) tray_icon, "popup-menu",
 		G_CALLBACK(on_popup), new_popup_menu(client_window));

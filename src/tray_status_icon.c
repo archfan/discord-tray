@@ -51,8 +51,6 @@ static void on_activate(GtkStatusIcon *icon, gpointer user_data)
 static GtkMenu *new_popup_menu(GdkWindow *client_window)
 {
 	GtkWidget *popup_menu = gtk_menu_new();
-	GtkWidget *separator =
-		gtk_separator_menu_item_new();
 	GtkWidget *quit_menu_item =
 		gtk_image_menu_item_new_from_stock(GTK_STOCK_QUIT, NULL);
 	

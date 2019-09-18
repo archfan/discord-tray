@@ -72,7 +72,7 @@ static GtkMenu *new_popup_menu(GdkWindow *client_window)
 void new_tray_icon(GdkWindow *client_window)
 {
 	GtkStatusIcon *tray_icon =
-		gtk_status_icon_new_from_icon_name("discord-client");
+		gtk_status_icon_new_from_icon_name("discord");
 	gtk_status_icon_set_has_tooltip(tray_icon, TRUE);
 	gtk_status_icon_set_visible(tray_icon, TRUE);
 	g_signal_connect((gpointer) tray_icon, "popup-menu",

@@ -8,7 +8,7 @@
 #include "tray_status_icon.h"
 #include "winctrl.h"
 
-#define DEFAULT_CLIENT_APP_PATH "discord"
+#define DEFAULT_CLIENT_APP_PATH "/usr/bin/discord"
 #define CLIENT_FIND_ATTEMPTS 5
 
 /* Gets called when the Discord client exits. */

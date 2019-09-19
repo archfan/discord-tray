@@ -15,7 +15,6 @@
 void on_client_app_exit(GPid pid, gint status, gpointer user_data)
 {
 	waitpid((pid_t) pid, NULL, 0);
-	g_spawn_close_pid(pid);
 	gtk_main_quit();
 }
 

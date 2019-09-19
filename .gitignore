@@ -18,5 +18,5 @@ src/.deps/
 src/discord-tray
 stamp-h1
 *.list
-discord-tray.spec
-discord-tray.desktop
+thunderbird-tray.spec
+thunderbird-tray.desktop
